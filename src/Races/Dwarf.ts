@@ -11,9 +11,7 @@ export default class Dwarf
     this._maxLifePoints = 80;
   }
 
-  get maxLifePoints(): number {
-    return this._maxLifePoints;
-  }
+  get maxLifePoints(): number { return this._maxLifePoints; }
 
   static createdRacesInstances(): number {
     return this._instance;

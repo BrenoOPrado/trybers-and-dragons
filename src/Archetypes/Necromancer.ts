@@ -12,9 +12,7 @@ export default class Necromancer
     Necromancer._instance += 1;
   }
 
-  get energyType(): EnergyType {
-    return this._energy;
-  }
+  get energyType(): EnergyType { return this._energy; }
 
   static createdArchetypeInstances(): number {
     return this._instance;

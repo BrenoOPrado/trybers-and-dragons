@@ -11,9 +11,7 @@ export default class Elf
     this._maxLifePoints = 99;
   }
 
-  get maxLifePoints(): number {
-    return this._maxLifePoints;
-  }
+  get maxLifePoints(): number { return this._maxLifePoints; }
 
   static createdRacesInstances(): number {
     return this._instance;
