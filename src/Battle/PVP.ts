@@ -1,5 +1,5 @@
-import Fighter from "../Fighter";
-import Battle from "./Battle";
+import Fighter from '../Fighter';
+import Battle from './Battle';
 
 export default class PVP
   extends Battle {
@@ -13,11 +13,12 @@ export default class PVP
   }
 
   fight(): number {
-    for (let i = 1; i > 0; i += 1) {
+    const maxLife: number = this._player1.lifePoints;
+    for (let i = 1; i <= maxLife; i += 1) {
       this._player1.attack(this._player2);
       this._player2.attack(this._player1);
       if (this._player1.lifePoints === -1 || this._player2.lifePoints === -1) {
-        i = -1;
+        i = maxLife + 1;
       }
     }
     if (super.fight() === 1) {
