@@ -12,7 +12,7 @@ export default class Character implements Fighter {
   private _strength: number;
   private _defense: number;
   private _dexterity: number;
-  readonly _energy: Energy;
+  private _energy: Energy;
 
   constructor(name: string) {
     this._archetype = new Mage(name);
@@ -40,7 +40,12 @@ export default class Character implements Fighter {
 
   get dexterity(): number { return this._dexterity; }
 
-  get energy(): Energy { return this._energy; }
+  get energy(): Energy {
+    return {
+      type_: this._energy.type_,
+      amount: this._energy.amount,
+    };
+  }
 
   receiveDamage(attackPoints: number): number {
     const damage = attackPoints - this._defense;
@@ -67,11 +72,12 @@ export default class Character implements Fighter {
     this._dexterity += getRandomInt(1, 10);
     this._defense += getRandomInt(1, 10);
     this._energy.amount = 10;
-    this._lifePoints = this._maxLifePoints;
 
     if (this._maxLifePoints > this._race.maxLifePoints) {
       this._maxLifePoints = this._race.maxLifePoints;
     }
+
+    this._lifePoints = this._maxLifePoints;
   }
 
   special(enemy: Fighter): void {
