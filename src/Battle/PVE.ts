@@ -4,9 +4,9 @@ import Battle from './Battle';
 export default class PVE
   extends Battle {
   private _player: Fighter;
-  private _enemies: [Fighter | SimpleFighter];
+  private _enemies: Fighter[] | SimpleFighter[];
 
-  constructor(player: Fighter, enemies: [Fighter | SimpleFighter]) {
+  constructor(player: Fighter, enemies: Fighter[] | SimpleFighter[]) {
     super(player);
     this._player = player;
     this._enemies = enemies;
